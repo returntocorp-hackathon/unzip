@@ -8,13 +8,11 @@
 # directory, each scan's log file is indexed by the datetime that the scan was
 # started.
 
-cp ./unix/configure .
 cp ./unix/Makefile .
-./configure
 datetime_startrun=$(date +"%Y%m%d%H%M%S")
 
 # Please note that scan-build has many interesting flags to run deeper analysis
 # of programs. These flags are not enabled by default, so participants are
 # encouraged to run `scan-build -h` and look through what the tool has to
 # offer. You can enable these flags by editing the line below.
-scan-build -o /vagrant_data/scan make 2>&1 | tee -a "${datetime_startrun}_scan.log"
+scan-build -o /vagrant_data/scan make generic 2>&1 | tee -a "${datetime_startrun}_scan.log"
